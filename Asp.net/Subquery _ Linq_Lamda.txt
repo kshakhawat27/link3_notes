@@ -1,0 +1,3 @@
+var curentApproverInfo = from nd in _context.CrDefaultApprovalFlow where nd.ApproverFlow > 
+                        (from ns in _context.CrDefaultApprovalFlow where ns.ApproverEmpId == userId select ns.ApproverFlow)
+                        .First() select nd;

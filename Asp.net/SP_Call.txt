@@ -1,0 +1,26 @@
+try
+            {
+                var CurentTime = new SqlParameter("@CurentTime", DateTime.Now);
+
+ 
+
+                var data = await _entities.LiveVideoQuizInformationModels.FromSqlRaw("exec GetLiveVideoQuizInformationV3 @CurentTime", CurentTime)
+                            .ToListAsync();
+
+ 
+
+                //return Json(new { result = data });
+                return Ok(new { result = data });
+            }
+            catch (Exception ex)
+            {
+
+ 
+
+            }
+
+
+
+----------------------------------------------
+
+await _basketContext.Database.ExecuteSqlInterpolatedAsync($"EXEC spGET_OA_SUCCESS_For_BkashCampaign @SubscriptionRequestId={parm1},@Servicetype={parm2},@trxDate={parm3}");
